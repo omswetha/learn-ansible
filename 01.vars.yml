@@ -24,3 +24,13 @@
         msg: "{{URL2}}"
       vars:
         URL2: sample.com
+
+- name: demo on register variable
+  hosts: localhost
+  tasks:
+    - name: get uptime server
+      ansible.builtin.shell: uptime
+      register: OUT
+    - name: print OUT var
+      ansible.builtin.debug:
+        msg: "{{OUT}}"
