@@ -10,6 +10,9 @@
 
 - name: demo on variables
   hosts: localhost
+  vars:
+    URL1: example.com
+    URL2: example.com
   tasks:
     - name: Print URL1 varaible
       ansible.builtin.debug:
