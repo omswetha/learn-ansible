@@ -1,36 +1,32 @@
 - name: demo on variables
-  hosts: localhost
-  vars:
-    URL: sample.com
+  hosts: all
+  Var:
+   URL: sample.com
   tasks:
-    - name: Print URL varaible
+    - name: print URL variable
       ansible.builtin.debug:
-        msg: "{{URL}}"
-
+       msg: "{{ URL }}"
 
 - name: demo on variables
-  hosts: localhost
-  vars:
-    URL1: example.com
-    URL2: example.com
+  hosts: all
   tasks:
-    - name: Print URL1 varaible
+    - name: print URL variable
       ansible.builtin.debug:
-        msg: "{{URL1}}"
-      vars:
+        msg: "{{ URL1 }}"
+      Vars:
         URL1: sample.com
-    - name: Print URL2 variable
+    - name: print URL variable
       ansible.builtin.debug:
-        msg: "{{URL2}}"
-      vars:
+        msg: "{{ URL2 }}"
+      Vars:
         URL2: sample.com
 
-- name: demo on register variable
-  hosts: localhost
+- name: register variable
+  hosts: local host
   tasks:
-    - name: get uptime server
+    - name: uptime of the server
       ansible.builtin.shell: uptime
       register: OUT
     - name: print OUT var
       ansible.builtin.debug:
-        msg: "{{OUT}}"
+       msg: "{{ OUT }}"
